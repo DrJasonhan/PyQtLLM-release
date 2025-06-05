@@ -1,0 +1,7 @@
+{
+    "marscode.chatLanguage": "cn",
+    "marscode.codeCompletionPro": {
+        "enableCodeCompletionPro": true
+    },
+    "idf.pythonInstallPath": "/Users/shuaihan/miniconda3/bin/python"
+}

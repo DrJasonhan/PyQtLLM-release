@@ -1,0 +1,1 @@
+pyside6-uic resources/UI.ui -o src/ui/UI.py   

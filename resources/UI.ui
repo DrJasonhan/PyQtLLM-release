@@ -1,0 +1,1351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>383</width>
+    <height>716</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>JARVIS</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="applications-science"/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 基本样式 */
+QMainWindow, QWidget {
+    background-color: #f5f5f7;
+    border: none;
+    border-radius: 10px;
+}
+
+
+QScrollArea {
+background-color: #f8f8f8;
+border-radius: 10px;
+border: 1px solid #d0d0d0;
+padding: 6px, 8px;
+}
+
+QScrollArea &gt; QWidget {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+QScrollArea &gt; QWidget &gt; QWidget {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+QScrollArea &gt; .QWidget &gt; * {
+    background-color: #f8f8f8;
+}
+
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #ffffff;
+    color: #404040;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    padding: 4px 12px;
+    min-height: 24px;
+}
+
+QPushButton:hover {
+    background-color: #f9f9f9;
+    border-color: #d5d5d5;
+}
+
+QPushButton:pressed {
+    background-color: #f0f0f0;
+}
+
+/* 删除按钮样式 */
+QPushButton#deleteButton, QPushButton[objectName*=&quot;delete&quot;], QPushButton[objectName*=&quot;remove&quot;] {
+    color: #e95c63;
+}
+
+QPushButton#deleteButton:hover, QPushButton[objectName*=&quot;delete&quot;]:hover, QPushButton[objectName*=&quot;remove&quot;]:hover {
+    background-color: #fff8f8;
+    color: #d64550;
+}
+
+/* 文本框样式 */
+QTextEdit, QLineEdit {
+    background-color: #ffffff;
+    color: #404040;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+/* 下拉框样式 */
+QComboBox {
+    background-color: #ffffff;
+    color: #404040;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    padding: 4px 8px;
+    min-height: 24px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    width: 20px;
+    border-left: none;
+}
+
+QComboBox::down-arrow {
+    width: 8px;
+    height: 8px;
+    border-top: 5px solid #a0a0a0;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+/* 菜单样式 */
+QMenuBar {
+    background-color: #f5f5f7;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+QMenu {
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+}
+
+/* 滚动条样式 */
+QScrollBar:vertical, QScrollBar:horizontal {
+    background: #f5f5f7;
+    width: 8px;
+    height: 8px;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    background: #d0d0d0;
+    border-radius: 4px;
+}
+
+QScrollBar::add-line, QScrollBar::sub-line {
+    height: 0px;
+    width: 0px;
+}
+
+/* 标签页样式 */
+QTabWidget::pane {
+    border: 1px solid #e2e2e2;
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+QTabBar::tab {
+    background-color: #f0f0f2;
+    color: #707070;
+    padding: 6px 12px;
+    border: 1px solid #e8e8e8;
+    border-bottom: none;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+QTabBar::tab:selected {
+    background-color: #ffffff;
+    color: #404040;
+}
+
+/* 复选框和单选按钮 */
+QCheckBox::indicator, QRadioButton::indicator {
+    border: 1px solid #d0d0d0;
+    background-color: #ffffff;
+}
+
+QCheckBox::indicator {
+    border-radius: 3px;
+    width: 16px;
+    height: 16px;
+}
+
+QRadioButton::indicator {
+    border-radius: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #6495ed;
+    border-color: #6495ed;
+}
+
+QRadioButton::indicator:checked {
+    border: 4px solid #6495ed;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>10</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+           /* color: white;*/
+        }</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/yinhexi.ico&quot; width=&quot;24&quot; height=&quot;24&quot; style=&quot;vertical-align: top;&quot;/&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;JARVIS &lt;/span&gt;&lt;span style=&quot; font-size:12pt; vertical-align:super;&quot;&gt;(Copyrights@&lt;/span&gt;&lt;a href=&quot;https://www.polyu.edu.hk/bre/people/academic-staff/dr-shuai-han/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#094fd1; vertical-align:super;&quot;&gt;Shuai&lt;/span&gt;&lt;/a&gt;&lt;a href=&quot;https://www.polyu.edu.hk/bre/people/academic-staff/dr-shuai-han/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#094fd1;&quot;/&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt; vertical-align:super;&quot;&gt;) &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::MarkdownText</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_close">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>5</horstretch>
+          <verstretch>10</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>34</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>34</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: transparent;
+    color: #808080;  /* 中灰色文字，简约风格 */
+    border: none;
+    text-align: center;    
+    width: 10px;
+    min-width: 10px;
+    max-width: 10px;
+}
+
+QPushButton:hover {
+    background-color: rgba(128, 128, 128, 0.1);  /* 鼠标悬停时显示淡灰色背景 */
+    color: #4d4d4d;  /* 鼠标悬停时文字变为深灰色 */
+}
+
+QPushButton:pressed {
+    background-color: rgba(128, 128, 128, 0.2);  /* 按下时背景颜色更深的灰色 */
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset theme="application-exit"/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QTabWidget::pane {
+        border: 0px;
+        margin: 0px;
+        padding: 0px;
+border-radius: 5px;
+    }</string>
+        </property>
+        <property name="tabPosition">
+         <enum>QTabWidget::TabPosition::North</enum>
+        </property>
+        <property name="tabShape">
+         <enum>QTabWidget::TabShape::Rounded</enum>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <property name="usesScrollButtons">
+         <bool>true</bool>
+        </property>
+        <property name="tabBarAutoHide">
+         <bool>false</bool>
+        </property>
+        <widget class="QWidget" name="tab_current_conversation">
+         <attribute name="icon">
+          <iconset theme="user-available"/>
+         </attribute>
+         <attribute name="title">
+          <string>Current Chat</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="autoFillBackground">
+             <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPlainTextEdit {
+    background-color: #ffffff;
+    color: #404040;
+    border-radius: 5px;
+    padding: 2px 6px;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::NoFrame</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>339</width>
+               <height>228</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_history_conversation">
+         <attribute name="icon">
+          <iconset theme="user-away"/>
+         </attribute>
+         <attribute name="title">
+          <string>History Chats</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <item>
+             <widget class="QListView" name="listView_history">
+              <property name="styleSheet">
+               <string notr="true">QListView {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 5px;
+    font-family: 'Microsoft YaHei', 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+}
+
+QListView::item {
+    border-bottom: 1px solid #eeeeee;
+    padding: 8px;
+    margin: 2px 0px;
+    border-radius: 4px;
+}
+
+QListView::item:selected {
+    background-color: #e7f3ff;
+    color: #0078d7;
+    border-bottom: 2px solid #0078d7;
+}
+
+QListView::item:hover {
+    background-color: #f0f0f0;
+}
+
+/* 滚动条样式 */
+QScrollBar:vertical {
+    border: none;
+    background: #f0f0f0;
+    width: 8px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: #c0c0c0;
+    min-height: 20px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #a0a0a0;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+              </property>
+              <property name="viewMode">
+               <enum>QListView::ViewMode::ListMode</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pushButton_select_all_historical_conversation">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset theme="format-justify-fill"/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_clear_history">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#deleteButton, QPushButton[objectName*=&quot;delete&quot;], QPushButton[objectName*=&quot;remove&quot;] {
+    background-color: #ffffff;
+    color: #e95c63;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 500;
+    font-family: &quot;SF Pro Display&quot;, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    min-height: 34px;
+    min-width: 90px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+QPushButton#deleteButton:hover, QPushButton[objectName*=&quot;delete&quot;]:hover, QPushButton[objectName*=&quot;remove&quot;]:hover {
+    background-color: #fff8f8;
+    border-color: #f0d0d0;
+    color: #d64550;
+}
+
+QPushButton#deleteButton:pressed, QPushButton[objectName*=&quot;delete&quot;]:pressed, QPushButton[objectName*=&quot;remove&quot;]:pressed {
+    background-color: #fff0f0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset theme="user-trash"/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame">
+              <property name="frameShape">
+               <enum>QFrame::Shape::NoFrame</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Shadow::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_2">
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+background-color: #ffffff;
+    color: #404040;
+    border: 1px solid #e2e2e2;
+border-radius: 10px;
+}
+
+/* 极简版本 - 只设置按钮和输入框样式 */
+QPushButton {
+    background-color: #ffffff;
+    border: 0px solid #e2e2e2;
+    border-radius: 6px;
+    padding: 3px 5px;
+}
+
+/* 删除按钮 */
+QPushButton#sendButton, QPushButton[objectName*=&quot;pushButton_send_question&quot;] {
+    color: #e95c63;
+}
+
+/* 光标悬停效果 */
+QPushButton:hover, QComboBox:hover {
+    border-color: #e2e2e2;
+	background-color: #f5f5f5;  /* 添加背景色变化 */
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QPlainTextEdit" name="plainTextEdit_ask">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Arial</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QPlainTextEdit {
+    background-color: #ffffff;
+    color: #404040;
+    border: 0px solid #e2e2e2;
+    border-radius: 6px;
+padding: 4px 8px;
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::Panel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+           <property name="placeholderText">
+            <string>Please input your question ...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="pushButton_new_conversation">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>43</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="list-add"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_upload_file">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>43</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="mail-attachment"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_model">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>43</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="emblem-system"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_mcp">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Optima</family>
+             <pointsize>11</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>mcp</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_settings">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>43</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="go-home"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="audio-input-microphone"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_send_question">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>67</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string notr="true"/>
+           </property>
+           <property name="icon">
+            <iconset theme="document-send"/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget_setting">
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget {
+    background-color: #f8f8f8;
+    border: 5px solid #e2e2e2;
+    border-radius: 10px;
+    padding: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* QStackedWidget中包含的控件样式 */
+QStackedWidget QLabel {
+    color: #404040;
+    font-size: 12px;
+    background-color: transparent;
+}
+
+QStackedWidget QPushButton {
+    background-color: #ffffff;
+    color: #404040;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    padding: 4px 12px;
+    min-height: 24px;
+}
+
+QStackedWidget QPushButton:hover {
+    background-color: #f9f9f9;
+    border-color: #d5d5d5;
+}
+
+QStackedWidget QPushButton:pressed {
+    background-color: #f0f0f0;
+}
+
+QStackedWidget QPushButton[objectName*=&quot;delete&quot;], QStackedWidget QPushButton[objectName*=&quot;remove&quot;] {
+    color: #e95c63;
+}
+
+QStackedWidget QPushButton[objectName*=&quot;delete&quot;]:hover, QStackedWidget QPushButton[objectName*=&quot;remove&quot;]:hover {
+    background-color: #fff8f8;
+    color: #d64550;
+}
+
+QStackedWidget QSlider::handle {
+    background-color: #6495ed;
+    border-radius: 7px;
+    width: 14px;
+    height: 14px;
+    margin: -4px 0;
+}
+
+QStackedWidget QSlider::groove:horizontal {
+    height: 6px;
+    background-color: #e2e2e2;
+    border-radius: 3px;
+}
+
+QStackedWidget QLineEdit {
+    background-color: #ffffff;
+    color: #404040;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+QStackedWidget QCheckBox {
+    spacing: 5px;
+}
+
+QStackedWidget QCheckBox::indicator {
+    border: 1px solid #d0d0d0;
+    background-color: #ffffff;
+    border-radius: 3px;
+    width: 16px;
+    height: 16px;
+}
+
+QStackedWidget QCheckBox::indicator:checked {
+    background-color: #6495ed;
+    border-color: #6495ed;
+}
+
+QStackedWidget QComboBox {
+    background-color: #ffffff;
+    color: #404040;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    padding: 4px 8px;
+    min-height: 24px;
+}
+
+QStackedWidget QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    width: 20px;
+    border-left: none;
+}
+
+QStackedWidget QComboBox::down-arrow {
+    width: 8px;
+    height: 8px;
+    border-top: 5px solid #a0a0a0;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+QStackedWidget QScrollBar:vertical, QStackedWidget QScrollBar:horizontal {
+    background: #f5f5f7;
+    width: 8px;
+    height: 8px;
+}
+
+QStackedWidget QScrollBar::handle:vertical, QStackedWidget QScrollBar::handle:horizontal {
+    background: #d0d0d0;
+    border-radius: 4px;
+}
+
+QStackedWidget QScrollBar::add-line, QStackedWidget QScrollBar::sub-line {
+    height: 0px;
+    width: 0px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::HLine</enum>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="lineEdit_username">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>ME</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Username:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>AI:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="lineEdit_AI_name">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>JARVIS</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_hide_panel_2">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    border: none;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset theme="go-down"/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_3">
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <widget class="QWidget" name="widget_upload_file" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>100</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="acceptDrops">
+           <bool>true</bool>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLabel" name="label_upload_file">
+             <property name="font">
+              <font>
+               <family>Arial</family>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+                border: 2px dashed #aaa;
+                border-radius: 5px;
+                padding: 20px;
+                background-color: #f8f8f8;
+                font-size: 14px;
+                color: #555;
+            }</string>
+             </property>
+             <property name="text">
+              <string>Drag and drop files here</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_remove_attachment">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset theme="user-trash"/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+          </property>
+          <item>
+           <widget class="QPushButton" name="pushButton_hide_panel_0">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    border: none;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset theme="go-down"/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Provider:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_model_provider">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="editable">
+             <bool>false</bool>
+            </property>
+            <property name="currentText">
+             <string>Please select</string>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <property name="frame">
+             <bool>true</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string>Please select</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Deepseek</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QWen</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Model:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_model_list">
+            <property name="editable">
+             <bool>false</bool>
+            </property>
+            <property name="currentText">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="2" column="3">
+           <widget class="QLineEdit" name="lineEdit_api_key">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+                color: #333333;
+                font-size: 12px;
+            }</string>
+            </property>
+            <property name="text">
+             <string></string>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::EchoMode::PasswordEchoOnEdit</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>API-Key:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Temperature:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="horizontalSlider_temperature">
+            <property name="value">
+             <number>25</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Function:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_function">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_hide_panel_1">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    border: none;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset theme="go-down"/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>383</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

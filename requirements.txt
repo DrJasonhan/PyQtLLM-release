@@ -1,0 +1,6 @@
+PySide6>=6.7.0
+openai>=1.12.0
+requests>=2.31.0
+markitdown>=1.0.0
+python-dotenv>=1.0.0  # 用于环境变量管理
+tqdm>=4.66.0  # 进度条显示
